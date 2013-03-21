@@ -78,23 +78,10 @@ function switcher() {
     xdotool key Return
     sleep $SLEEPTIME_TRANSITION
 
-    # first cycle: run all commands
-    i=0
-    for KEY in ${ORDER[@]}
-    do
-        xdotool key super+s
-        sleep $SLEEPTIME_TRANSITION
-        xdotool key $KEY
-        sleep $SLEEPTIME_TRANSITION 
-        xdotool key Return
-        sleep $SLEEPTIME_TRANSITION
-        `${COMMANDS[$i]}`
-        i=$[i + 1]
-        sleep $SLEEPTIME_SCREEN
-    done
-
+    cycle=0
     while [ -f $PIDFILE ] ;
     do
+        i=0
         for KEY in ${ORDER[@]}
         do
             xdotool key super+s
@@ -102,12 +89,18 @@ function switcher() {
             xdotool key $KEY
             sleep $SLEEPTIME_TRANSITION
             xdotool key Return
+            if [ "$cycle" == 0 ];
+            then 
+                `${COMMANDS[$i]}`
+            fi;
+            i=$[i + 1]
             if [ ! -f $PIDFILE ];
             then
                 exit 0
             fi
             sleep $SLEEPTIME_SCREEN
         done
+        cycle=$[cycle + 1]
     done
 }
 
