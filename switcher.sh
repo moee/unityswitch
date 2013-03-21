@@ -2,26 +2,20 @@
 # unity-workspace-switcher
 #
 # Setup
-# Time between workspace transition in seconds
-# It might be needed to adjust this depending on
-# the machine's performance
+# Time between workspace transition in seconds. It might be needed to adjust this depending on the machine's performance
 SLEEPTIME_TRANSITION=1
 # Time each workspace is shown
 SLEEPTIME_SCREEN=5
 # Transition sequence order
 ORDER=("Right" "Down" "Left" "Up");
-# Expected workspace sizes for the given transition sequence order to work
-# This will be checked when the script gets called.
+# Expected workspace sizes for the given transition sequence order to work. This will be checked when the script gets called.
 EXPECTED_HSIZE=2
 EXPECTED_VSIZE=2
 
-# This file will be created when the scripts starts an
-# endless loop. if you delete it, the script will terminate
-# Don't forget 
+# This file will be created when the scripts starts an endless loop. if you delete it, the script will terminate
 PIDFILE=/tmp/switcher.pid
 
-# A file that contains a command for each workspace
-# in a separate line
+# A file that contains a command for each workspace in a separate line
 COMMANDSFILE=commands.txt
 
 if [ -z $1 ];

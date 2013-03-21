@@ -9,7 +9,7 @@ Tested with Ubuntu 12.10 on a Unity desktop with 4 virtual desktops in a 2x2 gri
 Feel free to adapt the script to your own needs - You probably will have to do this anyway. However, use entirely at your own risk.
 
 ## setup
-create a file called commands.txt and put it into the directory of the workspace switcher. These file contains a line for each command that should be executed once upon startup in each workspace. A sample file that opens four firefox windows is provided in commands.txt.sample
+create a file called commands.txt and put it into the directory of the workspace switcher. This file contains a line for each command that should be executed once upon startup in each workspace. A sample file that opens four firefox windows is provided in commands.txt.sample
 
 you can also adjust some settings in switcher.sh (like timer settings).
 
