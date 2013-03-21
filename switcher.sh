@@ -102,6 +102,10 @@ function switcher() {
             xdotool key $KEY
             sleep $SLEEPTIME_TRANSITION
             xdotool key Return
+            if [ ! -f $PIDFILE ];
+            then
+                exit 0
+            fi
             sleep $SLEEPTIME_SCREEN
         done
     done
