@@ -1,0 +1,4 @@
+firefox -P default -new-window http://www.example.com
+firefox -P default -new-window http://www.example.com
+firefox -P default -new-window http://www.example.com
+firefox -P default -new-window http://www.example.com
