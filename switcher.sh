@@ -64,6 +64,13 @@ if [ $HSIZE != $EXPECTED_HSIZE ] || [ $VSIZE != $EXPECTED_VSIZE ]
     exit 1;
 fi
 
+hash xdotool &> /dev/null
+if [ $? -eq 1 ];
+    then
+    echo "This scripts needs xdotool installed. run sudo apt-get install xdotool"
+    exit 1;
+fi
+
 function switcher() {
     echo $$ > $PIDFILE
 
