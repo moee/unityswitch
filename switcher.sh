@@ -55,10 +55,10 @@ do
 done < $COMMANDSFILE
 
 # Check if this is an unity desktop and if it has  the correct workspace layout.
-HSIZE=$(gsettings get org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize)
-VSIZE=$(gsettings get org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize)
+HSIZE=$(gconftool-2 --get /apps/compiz-1/general/screen0/options/hsize)
+VSIZE=$(gconftool-2 --get /apps/compiz-1/general/screen0/options/vsize)
 
-if [ $HSIZE != $EXPECTED_HSIZE ] || [ $VSIZE != $EXPECTED_VSIZE ]
+if [ "$HSIZE" != $EXPECTED_HSIZE ] || [ "$VSIZE" != $EXPECTED_VSIZE ]
     then
     echo "This script expects a workspace vsize of $EXPECTED_VSIZE and hsize of $EXPECTED_HSIZE"
     exit 1;
